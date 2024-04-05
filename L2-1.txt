@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form .profile-picture {
+            display: block;
+            margin: 35px auto 20px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+        .login-form1.profile-picture {
+           margin-top: 50px;
+            display: block;
+            margin: 0 auto 20px;
+            width: 143px;
+            height: 143px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+
+        .login-form .forgot-password,
+        .login-form .sign-up {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+        .box {
+            width: 387px;
+            background-color:white;
+            border-radius: 6px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+          
+        .open-box {
+            visibility: visible;
+            transform: translate(-50%, -50%);
+        }
+
+        .box h3 {
+            font-size: 38px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 250px;
+            padding: 8px;
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 3px;
+            font-size: 16px;
+        }
+
+        .box button {
+         margin-top:100px;
+            width: 100%;
+            margin-top: 53px;
+            padding: 10px 0;
+            background-color:#007bff;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .remember-me,
+        .forgot-password {
+            position: absolute;
+            bottom: 85px;
+            width:58%;
+            text-align: center;
+        }
+        
+        .remember-me label,
+        .forgot-password a {
+            color: #333;
+        }
+        
+        .remember-me {
+            left: 24%;
+            transform: translateX(-50%);
+        }
+        
+        .forgot-password {
+            right: 0;
+        }
+        
+    </style>
+</head>
+    <body>
+
+    <div class="container">
+        <form class="login-form" action="#" method="post">
+                <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOCIi4qfj3pBIPB6CkMr8yiTMsIgekdCYkbQ&usqp=CAU" alt="Profile Picture">
+                <h2>Login Your Profile</h2>
+                <br>
+                <button class="btn" onclick="openBox()">Login</button>
+                <br>
+                <br>
+                <div class="sign-up">
+                    Don't have an account? <a href="#" id="signup-link">Sign Up</a>
+                </div>
+                <div class="box" id="box">
+                <form class="login-form1" action="#" method="post">
+                <img class="profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOCIi4qfj3pBIPB6CkMr8yiTMsIgekdCYkbQ&usqp=CAU" alt="Profile Picture">
+                <h3>Login  Form</h3>
+                <br>
+            <form action="#" method="post">
+                    <input type="text" placeholder="Full Name" required><br><br>
+                    <input type="email" placeholder="Email Id" required><br><br>
+                    <input type="password" placeholder="Password" required><br><br>
+                    <button type="submit">Login</button>
+                   
+            </form>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <br>
+                
+                <button onclick="closeBox()">Close</button>
+            </div>
+            <br>
+        </form>
+    </div>
+
+        <script>
+            let box = document.getElementById("box");
+            let registerBox = document.getElementById("box1");
+            let signupLink = document.getElementById("signup-link");
+
+            function openBox() {
+                box.classList.add("open-box");
+            }
+            
+            function closeBox() {
+                box.classList.remove("open-box");
+            }
+
+            signupLink.addEventListener("click", function(event) {
+                event.preventDefault(); 
+                registerBox.style.display = "block";
+            });
+        </script>
+    </body>
+</html>
